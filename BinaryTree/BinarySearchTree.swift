@@ -11,13 +11,17 @@ import Foundation
 class BinarySearchTree {
     var head : BinaryNode?
     
+    //These are here to help the BST understand its depth and nodes, so that it rebalances at times where it knows its inefficient.
+    var nodeCount : Int?
+    var depth: Int?
+    
     init(){}
     
     func addValue(value passed: Int) {
         if self.head == nil {
             self.head = BinaryNode(value: passed)
         } else {
-            self.head!.addNode(node: BinaryNode(value: passed))
+            self.head!.addNode(node: BinaryNode(value: passed), parent:nil)
         }
         
         //The super hard to read concise way to do that.
@@ -41,6 +45,23 @@ class BinarySearchTree {
             }
         }
         return nil
+    }
+    
+    func deleteNode(value : Int) -> BinaryNode? {
+        var selectedNode = findNode(value)
+        
+        if selectedNode != nil {
+//            if selectedNode!.left != nil && selectedNode!.right != nil {
+            
+//            } else if let oneNode = (selectedNode!.left ?? selectedNode!.right)
+        }
+        
+        return selectedNode
+        
+    }
+    
+    func rebalance() {
+        
     }
     
     //Deprecated, as it assigns values if they are not found... which is not intended in the funciton. Also the return is an int, which doesn't make much sense either.
