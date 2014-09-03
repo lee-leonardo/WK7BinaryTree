@@ -16,4 +16,21 @@ class BinaryNode {
     init(value passed: Int) {
         self.value = passed
     }
+    
+    func addNode(node passed: BinaryNode) {
+        if passed.value > self.value {
+            if let left = self.left {
+                left.addNode(node: passed)
+            } else {
+                self.left = passed
+            }
+        } else if passed.value < self.value {
+            if let right = self.right {
+                right.addNode(node: passed)
+            } else {
+                self.right = passed
+            }
+            
+        }
+    }
 }

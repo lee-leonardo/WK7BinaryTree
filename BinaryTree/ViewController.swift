@@ -23,16 +23,15 @@ class ViewController: UIViewController {
     
     func generateTree() {
         tree.addValue(value: 50)
-        tree.addValue(value: 1)
-        tree.addValue(value: 6)
-        tree.addValue(value: 65)
-        tree.addValue(value: 25)
-        tree.addValue(value: 75)
-        tree.addValue(value: 45)
-        tree.addValue(value: 40)
+        tree.addValue(value: 120)
         tree.addValue(value: 80)
-        tree.addValue(value: 100)
-        tree.addValue(value: 67)
+        tree.addValue(value: 90)
+        tree.addValue(value: 135)
+        tree.addValue(value: 4)
+        tree.addValue(value: 10)
+        tree.addValue(value: 12)
+        tree.addValue(value: 23)
+        tree.addValue(value: 8)
     }
 
 }
