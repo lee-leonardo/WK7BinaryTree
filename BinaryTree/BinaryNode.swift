@@ -16,8 +16,4 @@ class BinaryNode {
     init(value passed: Int) {
         self.value = passed
     }
-    
-    func addChild(node: BinaryNode) -> BinaryNode {
-        return node
-    }
 }
