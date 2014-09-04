@@ -51,18 +51,62 @@ class BinarySearchTree {
         var selectedNode = findNode(value)
         
         if selectedNode != nil {
-//            if selectedNode!.left != nil && selectedNode!.right != nil {
-            
-//            } else if let oneNode = (selectedNode!.left ?? selectedNode!.right)
+            if selectedNode!.left != nil && selectedNode!.right != nil {
+                let leftTemp = selectedNode!.left
+                
+                selectedNode!.value = selectedNode!.right?.value
+                selectedNode!.right = selectedNode!.right?.right
+                selectedNode?.right?.right = nil
+                selectedNode!.right?.parent = selectedNode
+                selectedNode!.left = selectedNode!.right?.left
+                selectedNode?.right?.left = nil
+                selectedNode?.left?.parent = selectedNode
+                
+                selectedNode!.addNode(node: leftTemp!, parent: selectedNode)
+                
+            }
+            else if let oneNode = (selectedNode!.left ?? selectedNode!.right) {
+                if let parent = selectedNode?.parent {
+                    
+                    if parent.left?.value == selectedNode?.value {
+                        parent.left = nil
+                    } else if parent.right?.value == selectedNode?.value {
+                        parent.right =  nil
+                    }
+                    
+                    parent.addNode(node: oneNode, parent: nil)
+                    selectedNode?.parent = nil
+                }
+                
+            }
+            else {
+                if let parent = selectedNode?.parent {
+                    selectedNode?.parent = nil
+                    if parent.left?.value == selectedNode?.value {
+                        parent.left = nil
+                    } else if parent.right?.value == selectedNode?.value {
+                        parent.right =  nil
+                    }
+                }
+            }
         }
         
         return selectedNode
         
     }
     
-    func rebalance() {
+    func rebalanceMergeSort() {
         
     }
+    
+    func rebalanceHardMode() {}
+    
+    func printTree() {
+        
+    }
+    
+    
+    
     
     //Deprecated, as it assigns values if they are not found... which is not intended in the funciton. Also the return is an int, which doesn't make much sense either.
     /*

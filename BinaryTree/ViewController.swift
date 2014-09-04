@@ -32,6 +32,7 @@ class ViewController: UIViewController {
         tree.addValue(value: 12)
         tree.addValue(value: 23)
         tree.addValue(value: 8)
+        //tree.deleteNode(10)
     }
 
 }
